@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="border white">
+      <h3 class="title green">lifehacker</h3>
+
+      <% @l.first(5).each do |t| %>
+      <ul>
+        <li><%= link_to "#{t.text}","https://www.lifehacker.jp#{t[:href]}" %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-offset-md-4 col-md-4">
+    <div class="border white">
+
+      <h3 class="title red">新R25（新着記事）</h3>
+      <% @q.first(5).each do |t| %>
+      <ul>
+        <li><%= link_to "#{t.text}","https://r25.jp#{t[:href]}" %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-offset-md-8 col-md-4">
+    <div class="border white">
+
+      <h3 class="title green">tech crunch（新着記事）</h3>
+      <% @p.first(5).each do |t| %>
+      <ul>
+        <li><%= link_to "#{t.text}","#{t.child.values[0]}" %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="border white">
+
+      <h3 class="title">NHKニュース（新着記事）</h3>
+      <% @d.first(5).each do |t| %>
+      <ul>
+        <li><%= link_to "#{t.children.children.children.text}","https://diamond.jp#{t[:href]}" %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
+</div>
