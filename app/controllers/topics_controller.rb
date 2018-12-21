@@ -18,6 +18,14 @@ class TopicsController < ApplicationController
   agent4 = Mechanize.new
   page4 = agent4.get("https://diamond.jp/category/dol")
   @d = page4.search('//article/a')
+
+  agent5 = Mechanize.new
+  page5 = agent5.get("http://www.dhbr.net/")
+  @h = page5.search('//span[contains(@class, "column-ttl")]')
+
+  agent6 = Mechanize.new
+  page6 = agent6.get("https://sports.yahoo.co.jp/")
+  @s = page6.search('//a[contains(@class, "sn-list__itemArticleLink")]')
   
   end
 end

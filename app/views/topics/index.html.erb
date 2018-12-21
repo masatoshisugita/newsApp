@@ -1,7 +1,8 @@
 <div class="row">
+  <h1 class="center">記事！記事！！記事！！！　とにかく記事を読め！！</h1>
   <div class="col-md-4">
     <div class="border white">
-      <h3 class="title green">lifehacker</h3>
+      <h3 class="title green">life hacker（新着記事）</h3>
 
       <% @l.first(5).each do |t| %>
       <ul>
@@ -34,14 +35,40 @@
       <% end %>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="border white">
+
+      <h3 class="title blue">NHKニュース（新着記事）</h3>
+      <% @d.first(5).each do |t| %>
+      <ul>
+        <li><%= link_to "#{t.children.children.children.text}","https://diamond.jp#{t[:href]}" %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
 
   <div class="col-md-4">
     <div class="border white">
 
-      <h3 class="title">NHKニュース（新着記事）</h3>
-      <% @d.first(5).each do |t| %>
+      <h3 class="title red">DIAMOND ハーバード・ビジネス・レビュー（新着記事）</h3>
+      <% @h.first(4).each do |t| %>
       <ul>
-        <li><%= link_to "#{t.children.children.children.text}","https://diamond.jp#{t[:href]}" %></li>
+        <li><%= link_to "#{t.text}","http://www.dhbr.net/#{t.parent[:href]}" %></li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="border white">
+
+      <h3 class="title red">スポーツナビ（新着記事）</h3>
+      <% @s.first(5).each do |t| %>
+      <ul>
+        <li><%= link_to "#{t.text}","#{t[:href]}" %></li>
       </ul>
       <% end %>
     </div>
