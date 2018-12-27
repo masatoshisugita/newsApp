@@ -23,7 +23,6 @@ $(function(){
   //$(".bucket").css("display","none").fadeIn();
 
 
-  $(".center").css("color","red")
 
   $("h3").click(function(){
 
