@@ -1,40 +1,33 @@
 <div class="row">
   <h1 class="center">記事！記事！！記事！！！　とにかく記事を読め！！</h1>
-  <div class="col-md-4">
-    <div class="border white">
-      <h3 class="title green">life hacker（新着記事）</h3>
+  <ul class="bxslider">
+  <li>
+      <h3 class="title green center">life hacker（新着記事）</h3>
 
       <% @l.first(5).each do |t| %>
-      <ul>
-        <li><%= link_to "#{t.text}","https://www.lifehacker.jp#{t[:href]}" %></li>
+      <ul class="center">
+        <li class="list"><%= link_to "#{t.text}","https://www.lifehacker.jp#{t[:href]}" %></li>
       </ul>
       <% end %>
-    </div>
-  </div>
-
-  <div class="col-offset-md-4 col-md-4">
-    <div class="border white">
-
-      <h3 class="title red">新R25（新着記事）</h3>
+  </li>
+  <li>
+      <h3 class="title red center">新R25（新着記事）</h3>
       <% @q.first(5).each do |t| %>
-      <ul>
-        <li><%= link_to "#{t.text}","https://r25.jp#{t[:href]}" %></li>
+      <ul class="center">
+        <li class="list"><%= link_to "#{t.text}","https://r25.jp#{t[:href]}" %></li>
       </ul>
       <% end %>
-    </div>
-  </div>
+  </li>
 
-  <div class="col-offset-md-8 col-md-4">
-    <div class="border white">
-
-      <h3 class="title green">tech crunch（新着記事）</h3>
+  <li>
+      <h3 class="title green center">tech crunch（新着記事）</h3>
       <% @p.first(5).each do |t| %>
-      <ul>
-        <li><%= link_to "#{t.text}","#{t.child.values[0]}" %></li>
+      <ul class="center">
+        <li class="list"><%= link_to "#{t.text}","#{t.child.values[0]}" %></li>
       </ul>
       <% end %>
-    </div>
-  </div>
+  </li>
+  </ul>
 </div>
 
 <div class="row">
@@ -73,5 +66,4 @@
       <% end %>
     </div>
   </div>
-
 </div>

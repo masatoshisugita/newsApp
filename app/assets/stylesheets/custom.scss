@@ -1,11 +1,40 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "jquery.bxslider.scss";
 
-body {
-  background-color: #FFFF99;
+html,body {
+  background-image: image-url("8fce9b5cf9b42c4df8570c088213f8b8_m.jpg");
+  background-size: cover;
   padding-top: 60px;
 }
 
+
+header {
+  height: 60px;
+  margin: 0;
+}
+
+footer {
+   margin-top: 45px;
+   padding-top: 5px;
+   border-top: 1px solid black;
+   color: black;
+   ul {
+     text-align: center;
+     list-style: none;
+     li {
+       margin-left: 15px;
+     }
+   }
+ }
+
+ul {
+  list-style: none;
+}
+
+.list{
+  border-bottom: 1px solid black;
+}
 .center {
   text-align: center;
 }
