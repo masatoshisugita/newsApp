@@ -72,3 +72,5 @@ gem 'bootstrap-sass'
 gem 'mechanize'
 
 gem "jquery-rails"
+
+gem 'devise'

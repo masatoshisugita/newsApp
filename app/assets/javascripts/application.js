@@ -18,22 +18,5 @@
 //= require_tree .
 
 
-$(function(){
 
   //$(".bucket").css("display","none").fadeIn();
-
-
-
-  $("h3").click(function(){
-
-    $("#a").fadeOut();
-  });
-
-  $(".login-wrapper-modal").click(function(){
-    $("#login-modal").css("display","none").fadeIn();
-  });
-
-  $(".close-modal").click(function(){
-    $(".modal").fadeOut();
-  });
-});

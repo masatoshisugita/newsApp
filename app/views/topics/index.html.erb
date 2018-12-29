@@ -1,33 +1,49 @@
 <div class="row">
   <h1 class="center">記事！記事！！記事！！！　とにかく記事を読め！！</h1>
-  <ul class="bxslider">
-  <li>
+  <div class="col-md-4">
+    <div class="border white">
+
       <h3 class="title green center">life hacker（新着記事）</h3>
 
       <% @l.first(5).each do |t| %>
       <ul class="center">
         <li class="list"><%= link_to "#{t.text}","https://www.lifehacker.jp#{t[:href]}" %></li>
+        <% unless current_user == nil %>
+        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "https://www.lifehacker.jp#{t[:href]}"  }),{ :method => "post" } %></li>
+        <% end %>
       </ul>
       <% end %>
-  </li>
-  <li>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="border white">
+
       <h3 class="title red center">新R25（新着記事）</h3>
       <% @q.first(5).each do |t| %>
       <ul class="center">
         <li class="list"><%= link_to "#{t.text}","https://r25.jp#{t[:href]}" %></li>
+        <% unless current_user == nil %>
+        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "https://r25.jp#{t[:href]}"  }),{ :method => "post" } %></li>
+        <% end %>
       </ul>
       <% end %>
-  </li>
+    </div>
+  </div>
 
-  <li>
+  <div class="col-md-4">
+    <div class="border white">
       <h3 class="title green center">tech crunch（新着記事）</h3>
       <% @p.first(5).each do |t| %>
       <ul class="center">
         <li class="list"><%= link_to "#{t.text}","#{t.child.values[0]}" %></li>
+        <% unless current_user == nil %>
+        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "#{t.child.values[0]}"  }),{ :method => "post" } %></li>
+        <% end %>
       </ul>
       <% end %>
-  </li>
-  </ul>
+    </div>
+  </div>
 </div>
 
 <div class="row">
@@ -37,7 +53,10 @@
       <h3 class="title blue">NHKニュース（新着記事）</h3>
       <% @d.first(5).each do |t| %>
       <ul>
-        <li><%= link_to "#{t.children.children.children.text}","https://diamond.jp#{t[:href]}" %></li>
+        <li class="list"><%= link_to "#{t.children.children.children.text}","https://diamond.jp#{t[:href]}" %></li>
+        <% unless current_user == nil %>
+        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.children.children.children.text,url: "https://diamond.jp#{t[:href]}"  }),{ :method => "post" } %></li>
+        <% end %>
       </ul>
       <% end %>
     </div>
@@ -49,7 +68,10 @@
       <h3 class="title red">DIAMOND ハーバード・ビジネス・レビュー（新着記事）</h3>
       <% @h.first(4).each do |t| %>
       <ul>
-        <li><%= link_to "#{t.text}","http://www.dhbr.net/#{t.parent[:href]}" %></li>
+        <li class="list"><%= link_to "#{t.text}","http://www.dhbr.net/#{t.parent[:href]}" %></li>
+        <% unless current_user == nil %>
+        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "http://www.dhbr.net/#{t.parent[:href]}"  }),{ :method => "post" } %></li>
+        <% end %>
       </ul>
       <% end %>
     </div>
@@ -61,7 +83,10 @@
       <h3 class="title red">スポーツナビ（新着記事）</h3>
       <% @s.first(5).each do |t| %>
       <ul>
-        <li><%= link_to "#{t.text}","#{t[:href]}" %></li>
+        <li class="list"><%= link_to "#{t.text}","#{t[:href]}" %></li>
+        <% unless current_user == nil %>
+        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "#{t[:href]}"  }),{ :method => "post" } %></li>
+        <% end %>
       </ul>
       <% end %>
     </div>

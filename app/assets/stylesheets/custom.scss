@@ -1,8 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "jquery.bxslider.scss";
 
-html,body {
+body {
   background-image: image-url("8fce9b5cf9b42c4df8570c088213f8b8_m.jpg");
   background-size: cover;
   padding-top: 60px;
@@ -28,12 +27,21 @@ footer {
    }
  }
 
-ul {
-  list-style: none;
+
+h1 {
+  color: red;
 }
 
 .list{
   border-bottom: 1px solid black;
+}
+
+.margin {
+  margin-top: 40px;
+}
+
+.none {
+  list-style: none;
 }
 .center {
   text-align: center;

@@ -26,6 +26,35 @@ class TopicsController < ApplicationController
   agent6 = Mechanize.new
   page6 = agent6.get("https://sports.yahoo.co.jp/")
   @s = page6.search('//a[contains(@class, "sn-list__itemArticleLink")]')
-  
+
+
+  @topic = Topic.new
+
   end
+
+  def create
+    @topic = current_user.topics.new(topic_params)
+    if @topic
+      @topic.save
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    @topic = Topic.find_by(id: params[:id])
+    if @topic.destroy
+      redirect_to "/users/index"
+    end
+  end
+
+  private
+
+  def topic_params
+    params.require(:topic).permit(:user_id, :text,:url)
+  end
+
+
+
 end
