@@ -1,19 +1,31 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
+
     <nav>
-      <ul class="nav navbar-nav">
-        <li><%= link_to "NewsApp", root_path, id: "logo" %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <div class="nav navbar-nav navbar-brand">
+        <%= link_to "NewsApp", root_path, id: "logo" %>
+        </div>
+
+
         <% if current_user == nil %>
-          <li><%= link_to "登録", new_user_registration_path, id: "logo" %></li>
-          <li><%= link_to "ログイン", new_user_session_path, id: "logo" %></li>
+        <div class="dropdown right">
+                    <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        メニュー
+                    </button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <ul>
+          <li><a class="dropdown-item" ><%= link_to "登録", new_user_registration_path, id: "logo" %></a></li>
+          <li><a class="dropdown-item" ><%= link_to "ログイン", new_user_session_path, id: "logo" %></a></li>
+          </ul>
         <% else %>
-          <li><%= link_to "保存一覧", "/users/index" %></li>
-          <li><%= link_to "ユーザー編集","/users/edit" %></li>
-          <li><%= link_to "ログアウト",  destroy_user_session_path, { :method => "delete" } %></li>
+          <a class="dropdown-item" ><%= link_to "保存一覧", "/users/index" %></a>
+          <a class="dropdown-item" ><%= link_to "ユーザー編集","/users/edit" %></a>
+          <a class="dropdown-item" ><%= link_to "ログアウト",  destroy_user_session_path, { :method => "delete" } %></a>
+        </div>
+
+            </div>
+
         <% end %>
-      </ul>
     </nav>
   </div>
 </header>

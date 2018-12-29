@@ -1,10 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
 body {
   background-image: image-url("8fce9b5cf9b42c4df8570c088213f8b8_m.jpg");
   background-size: cover;
   padding-top: 60px;
+  height: 100%;
 }
 
 
@@ -29,9 +33,17 @@ footer {
 
 
 h1 {
-  color: red;
+  color: #0000CC;
 }
 
+.right {
+  float: right;
+}
+
+.dropdown {
+  background-color: white;
+  margin-top: 17px;
+}
 .list{
   border-bottom: 1px solid black;
 }
