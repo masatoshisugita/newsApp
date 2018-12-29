@@ -7,23 +7,23 @@
         </div>
 
 
-        <% if current_user == nil %>
         <div class="dropdown right">
                     <button class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         メニュー
                     </button>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
           <ul>
+            <% if current_user == nil %>
           <li><a class="dropdown-item" ><%= link_to "登録", new_user_registration_path, id: "logo" %></a></li>
           <li><a class="dropdown-item" ><%= link_to "ログイン", new_user_session_path, id: "logo" %></a></li>
-          </ul>
         <% else %>
-          <a class="dropdown-item" ><%= link_to "保存一覧", "/users/index" %></a>
-          <a class="dropdown-item" ><%= link_to "ユーザー編集","/users/edit" %></a>
-          <a class="dropdown-item" ><%= link_to "ログアウト",  destroy_user_session_path, { :method => "delete" } %></a>
+          <li><a class="dropdown-item" ><%= link_to "保存一覧", "/users/index" %></a></li>
+          <li><a class="dropdown-item" ><%= link_to "ユーザー編集","/users/edit" %></a></li>
+          <li><a class="dropdown-item" ><%= link_to "ログアウト",  destroy_user_session_path, { :method => "delete" } %></a></li>
+        </ul>
         </div>
-
-            </div>
+      </div>
 
         <% end %>
     </nav>
