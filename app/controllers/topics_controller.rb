@@ -7,9 +7,8 @@ class TopicsController < ApplicationController
   @l = page.search('h3 a')
 
   agent2 = Mechanize.new
-  page2 = agent2.get("https://r25.jp/")
-  #@q = page2.search('//*[@id="app"]/div/main/div/div[3]/div[1]/div[2]/div/div[1]/a/div[2]/h2')
-  @q = page2.search('//a[contains(@name ,"latest")]')
+  page2 = agent2.get("https://www.ghc-j.com/case/?orderby=default_date&order=DESC")
+  @q = page2.search('//h1[contains(@class ,"page-h1")]')
 
   agent3 = Mechanize.new
   page3 = agent3.get("https://jp.techcrunch.com/")
@@ -21,12 +20,11 @@ class TopicsController < ApplicationController
 
   agent5 = Mechanize.new
   page5 = agent5.get("http://www.dhbr.net/")
-  @h = page5.search('//span[contains(@class, "column-ttl")]')
+  @h = page5.search('//a[contains(@class, "cf")]')
 
   agent6 = Mechanize.new
   page6 = agent6.get("https://sports.yahoo.co.jp/")
   @s = page6.search('//a[contains(@class, "sn-list__itemArticleLink")]')
-
 
   @topic = Topic.new
 
@@ -54,7 +52,5 @@ class TopicsController < ApplicationController
   def topic_params
     params.require(:topic).permit(:user_id, :text,:url)
   end
-
-
 
 end

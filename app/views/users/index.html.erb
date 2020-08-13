@@ -1,16 +1,14 @@
 <div class="row">
-
   <h1 class="center">保存一覧</h1>
+  <h3 class="center">保存数：<%= current_user.topics.count %></h3>
   <div class="col-md-offset-2 col-md-8">
     <div class="border white">
-
       <% @topics.each do |topic| %>
       <ul class="margin">
         <li class="list"><%= link_to "#{topic.text}","#{topic.url}" %></li>
         <li class="none"><%= link_to "上の記事を削除",topic_path(topic),{:method => "delete"} %></li>
-
       </ul>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
+</div>
