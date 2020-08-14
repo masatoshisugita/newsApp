@@ -4,12 +4,12 @@
   <div class="col-md-4">
     <div class="border white">
 
-      <h3 class="title green center">life hacker（新着記事）</h3>
-      <% @l.first(5).each do |t| %>
+      <h3 class="title green center">ミクスOnline</h3>
+      <% @mikusu.first(5).each do |mikusu| %>
       <ul class="center">
-        <li class="list"><%= link_to "#{t.text}","https://www.lifehacker.jp#{t[:href]}" %></li>
+        <li class="list"><%= link_to "#{mikusu.child.inner_html}","https://www.mixonline.jp/#{mikusu.child[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "https://www.lifehacker.jp#{t[:href]}"  }),{ :method => "post" } %></li>
+          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: mikusu.child.inner_html,url: "https://www.mixonline.jp/#{mikusu.child[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>

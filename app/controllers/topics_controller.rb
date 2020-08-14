@@ -1,17 +1,15 @@
 class TopicsController < ApplicationController
   def index
   agent = Mechanize.new
-  page = agent.get("https://www.lifehacker.jp/articles/")
-  #@l = page.search('//a[contains(@href ,"2018/12")]')
-  #@l = page.search('//a[contains(@class, "lh-summary-title")]')
-  @l = page.search('h3 a')
+  page = agent.get("https://www.mixonline.jp/")
+  @mikusu = page.search('//div[contains(@class, "newsSubject")]')
 
   agent2 = Mechanize.new
   page2 = agent2.get("https://www.ghc-j.com/case/?orderby=default_date&order=DESC")
   @q = page2.search('//h1[contains(@class ,"page-h1")]')
 
   agent3 = Mechanize.new
-  page3 = agent3.get("https://jp.techcrunch.com/")
+  page3 = agent3.get("https://www.joint-kaigo.com/")
   @p = page3.search('//h2[contains(@class, "post-title")]')
 
   agent4 = Mechanize.new
