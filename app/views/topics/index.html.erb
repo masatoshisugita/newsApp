@@ -1,9 +1,9 @@
 <div class="row">
 
   <h1 class="center">News App</h1>
+
   <div class="col-md-4">
     <div class="border white">
-
       <h3 class="title green center">ミクスOnline</h3>
       <% @mikusu.first(5).each do |mikusu| %>
       <ul class="center">
@@ -18,13 +18,12 @@
 
   <div class="col-md-4">
     <div class="border white">
-
       <h3 class="title red center">GLOBAL HEALTH</h3>
-      <% @q.first(5).each do |t| %>
+      <% @global.first(5).each do |global| %>
       <ul class="center">
-        <li class="list"><%= link_to "#{t.text}","#{t.parent.parent.parent[:href]}" %></li>
+        <li class="list"><%= link_to "#{global.text}","#{global.parent.parent.parent[:href]}" %></li>
           <% unless current_user == nil %>
-        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "https://r25.jp#{t.parent.parent[:href]}"  }),{ :method => "post" } %></li>
+        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: global.text,url: "#{global.parent.parent.parent[:href]}"}),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>
