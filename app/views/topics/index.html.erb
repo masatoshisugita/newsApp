@@ -23,8 +23,8 @@
       <ul class="center">
         <li class="list"><%= link_to "#{global.text}","#{global.parent.parent.parent[:href]}" %></li>
           <% unless current_user == nil %>
-        <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: global.text,url: "#{global.parent.parent.parent[:href]}"}),{ :method => "post" } %></li>
-        <% end %>
+            <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: global.text,url: "#{global.parent.parent.parent[:href]}"}),{ :method => "post" } %></li>
+          <% end %>
       </ul>
       <% end %>
     </div>
@@ -32,13 +32,12 @@
 
   <div class="col-md-4">
     <div class="border white">
-
-      <h3 class="title green center">tech crunch（新着記事）</h3>
-      <% @p.first(5).each do |t| %>
+      <h3 class="title green center">Medical Tribune</h3>
+      <% @tribune.first(5).each do |tribune| %>
       <ul class="center">
-        <li class="list"><%= link_to "#{t.text}","#{t.child.values[0]}" %></li>
+        <li class="list"><%= link_to "#{tribune.text}","#{tribune.parent.parent[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "#{t.child.values[0]}"  }),{ :method => "post" } %></li>
+          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: tribune.text,url: "#{tribune.parent.parent[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>
@@ -53,12 +52,12 @@
   <div class="col-md-4">
     <div class="border white">
 
-      <h3 class="title blue">NHKニュース（新着記事）</h3>
-      <% @d.first(5).each do |t| %>
+      <h3 class="title blue">CareNet</h3>
+      <% @carenet.first(5).each do |carenet| %>
       <ul>
-        <li class="list"><%= link_to "#{t.children.children.children.text}","https://diamond.jp#{t[:href]}" %></li>
+        <li class="list"><%= link_to "#{carenet.text}","https://www.carenet.com/#{carenet.parent[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.children.children.children.text,url: "https://diamond.jp#{t[:href]}"  }),{ :method => "post" } %></li>
+          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: carenet.text,url: "https://www.carenet.com/#{carenet.parent[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>

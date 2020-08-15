@@ -9,12 +9,12 @@ class TopicsController < ApplicationController
   @global = page2.search('//h1[contains(@class ,"page-h1")]')
 
   agent3 = Mechanize.new
-  page3 = agent3.get("https://www.joint-kaigo.com/")
-  @p = page3.search('//h2[contains(@class, "post-title")]')
+  page3 = agent3.get("https://medical-tribune.co.jp/")
+  @tribune = page3.search('//p[contains(@class, "article-title")]')
 
   agent4 = Mechanize.new
-  page4 = agent4.get("https://diamond.jp/category/dol")
-  @d = page4.search('//article/a')
+  page4 = agent4.get("https://www.carenet.com/")
+  @carenet = page4.search('//div[contains(@class, "post-ranking__text-item")]')
 
   agent5 = Mechanize.new
   page5 = agent5.get("http://www.dhbr.net/")
