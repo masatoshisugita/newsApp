@@ -9,8 +9,8 @@ class TopicsController < ApplicationController
   @global = page2.search('//h1[contains(@class ,"page-h1")]')
 
   agent3 = Mechanize.new
-  page3 = agent3.get("https://www.joint-kaigo.com/")
-  @p = page3.search('//h2[contains(@class, "post-title")]')
+  page3 = agent3.get("https://medical-tribune.co.jp/")
+  @tribune = page3.search('//p[contains(@class, "article-title")]')
 
   agent4 = Mechanize.new
   page4 = agent4.get("https://diamond.jp/category/dol")
