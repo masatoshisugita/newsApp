@@ -16,7 +16,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-
-
-  //$(".bucket").css("display","none").fadeIn();

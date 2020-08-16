@@ -12,8 +12,11 @@
 
   <body>
     <%= render 'layouts/header' %>
+     <% flash.each do |message_type, message| %>
+          <div class="mt-3 text-center alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <div class="container-fluid">
-    <%= yield %>
+      <%= yield %>
     <%= render 'layouts/footer' %>
     </div>
   </body>

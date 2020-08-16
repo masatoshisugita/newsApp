@@ -30,17 +30,19 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.new(topic_params)
-    if @topic
-      @topic.save
+    if @topic.save
+      flash[:success] = "記事を保存しました"
       redirect_to root_path
     else
-      redirect_to root_path
+      flash.now[:danger] = "記事を保存できませんでした"
+      render :root_url
     end
   end
 
   def destroy
     @topic = Topic.find_by(id: params[:id])
     if @topic.destroy
+      flash[:danger] = "記事を削除しました"
       redirect_to "/users/index"
     end
   end
