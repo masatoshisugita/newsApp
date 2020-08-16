@@ -50,7 +50,7 @@
 <div class="row">
 
   <div class="col-md-4">
-    <div class="border white">
+    <div class="border white center">
 
       <h3 class="title blue">CareNet</h3>
       <% @carenet.first(5).each do |carenet| %>
@@ -65,14 +65,14 @@
   </div>
 
   <div class="col-md-4">
-    <div class="border white">
+    <div class="border white center">
 
-      <h3 class="title red">DIAMOND ハーバード・ビジネス・レビュー（新着記事）</h3>
-      <% @h.first(5).each do |t| %>
+      <h3 class="title red">Gem Med</h3>
+      <% @gemmed.first(5).each do |gemmed| %>
       <ul>
-        <li class="list"><%= link_to "#{t.text}","http://www.dhbr.net/#{t[:href]}" %></li>
+        <li class="list"><%= link_to "#{gemmed.child.inner_text}","#{gemmed.child[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "http://www.dhbr.net/#{t[:href]}"  }),{ :method => "post" } %></li>
+          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: gemmed.child.inner_text,url: "#{gemmed.child[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>
@@ -80,14 +80,14 @@
   </div>
 
   <div class="col-md-4">
-    <div class="border white">
+    <div class="border white center">
 
-      <h3 class="title red">スポーツナビ（新着記事）</h3>
-      <% @s.first(5).each do |t| %>
+      <h3 class="title red">デジタルヘルス</h3>
+      <% @digital.first(5).each do |digital| %>
       <ul>
-        <li class="list"><%= link_to "#{t.text}","#{t[:href]}" %></li>
+        <li class="list"><%= link_to "#{digital.text}","https://xtech.nikkei.com#{digital.parent.parent[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: t.text,url: "#{t[:href]}"  }),{ :method => "post" } %></li>
+          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: digital.text,url: "https://xtech.nikkei.com#{digital.parent.parent[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>

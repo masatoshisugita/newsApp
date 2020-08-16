@@ -17,12 +17,12 @@ class TopicsController < ApplicationController
   @carenet = page4.search('//div[contains(@class, "post-ranking__text-item")]')
 
   agent5 = Mechanize.new
-  page5 = agent5.get("http://www.dhbr.net/")
-  @h = page5.search('//a[contains(@class, "cf")]')
+  page5 = agent5.get("https://gemmed.ghc-j.com/")
+  @gemmed = page5.search('//h3[contains(@class, "ttl")]')
 
   agent6 = Mechanize.new
-  page6 = agent6.get("https://sports.yahoo.co.jp/")
-  @s = page6.search('//a[contains(@class, "sn-list__itemArticleLink")]')
+  page6 = agent6.get("https://xtech.nikkei.com/media/digitalhealth/")
+  @digital = page6.search('//h3[contains(@class, "p-articlePanel_item_title")]')
 
   @topic = Topic.new
 
