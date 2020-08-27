@@ -6,10 +6,10 @@
     <div class="border white">
       <h3 class="title green center">ミクスOnline</h3>
       <% @mikusu.first(5).each do |mikusu| %>
-      <ul class="center">
-        <li class="list"><%= link_to "#{mikusu.child.inner_html}","https://www.mixonline.jp/#{mikusu.child[:href]}" %></li>
+      <ul>
+        <li><%= link_to "#{mikusu.child.inner_html}","https://www.mixonline.jp/#{mikusu.child[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: mikusu.child.inner_html,url: "https://www.mixonline.jp/#{mikusu.child[:href]}"  }),{ :method => "post" } %></li>
+          <li class="save-link none"><%= link_to "保存",topics_path(topic:{user_id: current_user.id, text: mikusu.child.inner_html,url: "https://www.mixonline.jp/#{mikusu.child[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>
@@ -20,10 +20,10 @@
     <div class="border white">
       <h3 class="title red center">GLOBAL HEALTH</h3>
       <% @global.first(5).each do |global| %>
-      <ul class="center">
-        <li class="list"><%= link_to "#{global.text}","#{global.parent.parent.parent[:href]}" %></li>
+      <ul>
+        <li><%= link_to "#{global.text}","#{global.parent.parent.parent[:href]}" %></li>
           <% unless current_user == nil %>
-            <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: global.text,url: "#{global.parent.parent.parent[:href]}"}),{ :method => "post" } %></li>
+            <li class="save-link none"><%= link_to "保存",topics_path(topic:{user_id: current_user.id, text: global.text,url: "#{global.parent.parent.parent[:href]}"}),{ :method => "post" } %></li>
           <% end %>
       </ul>
       <% end %>
@@ -34,10 +34,10 @@
     <div class="border white">
       <h3 class="title green center">Medical Tribune</h3>
       <% @tribune.first(5).each do |tribune| %>
-      <ul class="center">
-        <li class="list"><%= link_to "#{tribune.text}","#{tribune.parent.parent[:href]}" %></li>
+      <ul>
+        <li><%= link_to "#{tribune.text}","#{tribune.parent.parent[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: tribune.text,url: "#{tribune.parent.parent[:href]}"  }),{ :method => "post" } %></li>
+          <li class="save-link none"><%= link_to "保存",topics_path(topic:{user_id: current_user.id, text: tribune.text,url: "#{tribune.parent.parent[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>
@@ -50,14 +50,14 @@
 <div class="row">
 
   <div class="col-md-4">
-    <div class="border white center">
+    <div class="border white">
 
-      <h3 class="title blue">CareNet</h3>
+      <h3 class="title blue center">CareNet</h3>
       <% @carenet.first(5).each do |carenet| %>
       <ul>
-        <li class="list"><%= link_to "#{carenet.text}","https://www.carenet.com/#{carenet.parent[:href]}" %></li>
+        <li><%= link_to "#{carenet.text}","https://www.carenet.com/#{carenet.parent[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: carenet.text,url: "https://www.carenet.com/#{carenet.parent[:href]}"  }),{ :method => "post" } %></li>
+          <li class="save-link none"><%= link_to "保存",topics_path(topic:{user_id: current_user.id, text: carenet.text,url: "https://www.carenet.com/#{carenet.parent[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>
@@ -65,14 +65,14 @@
   </div>
 
   <div class="col-md-4">
-    <div class="border white center">
+    <div class="border white">
 
-      <h3 class="title red">Gem Med</h3>
+      <h3 class="title red center">Gem Med</h3>
       <% @gemmed.first(5).each do |gemmed| %>
       <ul>
-        <li class="list"><%= link_to "#{gemmed.child.inner_text}","#{gemmed.child[:href]}" %></li>
+        <li><%= link_to "#{gemmed.child.inner_text}","#{gemmed.child[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: gemmed.child.inner_text,url: "#{gemmed.child[:href]}"  }),{ :method => "post" } %></li>
+          <li class="save-link none"><%= link_to "保存",topics_path(topic:{user_id: current_user.id, text: gemmed.child.inner_text,url: "#{gemmed.child[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>
@@ -80,14 +80,14 @@
   </div>
 
   <div class="col-md-4">
-    <div class="border white center">
+    <div class="border white">
 
-      <h3 class="title red">デジタルヘルス</h3>
+      <h3 class="title blue center">デジタルヘルス</h3>
       <% @digital.first(5).each do |digital| %>
       <ul>
-        <li class="list"><%= link_to "#{digital.text}","https://xtech.nikkei.com#{digital.parent.parent[:href]}" %></li>
+        <li><%= link_to "#{digital.text}","https://xtech.nikkei.com#{digital.parent.parent[:href]}" %></li>
         <% unless current_user == nil %>
-          <li class="none"><%= link_to "上の記事を保存",topics_path(topic:{user_id: current_user.id, text: digital.text,url: "https://xtech.nikkei.com#{digital.parent.parent[:href]}"  }),{ :method => "post" } %></li>
+          <li class="save-link none"><%= link_to "保存",topics_path(topic:{user_id: current_user.id, text: digital.text,url: "https://xtech.nikkei.com#{digital.parent.parent[:href]}"  }),{ :method => "post" } %></li>
         <% end %>
       </ul>
       <% end %>

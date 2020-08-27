@@ -4,13 +4,13 @@
 html {
   height: 100%;
 }
+
 body {
   background-image: image-url("8fce9b5cf9b42c4df8570c088213f8b8_m.jpg");
   background-size: cover;
   padding-top: 60px;
   height: 100%;
 }
-
 
 header {
   height: 60px;
@@ -44,7 +44,10 @@ h1 {
   background-color: white;
   margin-top: 17px;
 }
-.list{
+
+.save-link {
+  text-align: right;
+  font-size: 14px;
   border-bottom: 1px solid black;
 }
 
