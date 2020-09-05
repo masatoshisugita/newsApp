@@ -6,7 +6,7 @@
       <% @topics.each do |topic| %>
       <ul class="margin">
         <li class="list"><%= link_to "#{topic.text}","#{topic.url}" %></li>
-        <li class="none"><%= link_to "上の記事を削除",topic_path(topic),{:method => "delete"} %></li>
+        <li class="none text-right"><%= link_to "記事を削除",topic_path(topic),{:method => "delete"} %></li>
       </ul>
       <% end %>
     </div>
